@@ -1,0 +1,11 @@
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\obj\Debug\netcoreapp2.1\ASM2-DataStructure.csprojAssemblyReference.cache
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\obj\Debug\netcoreapp2.1\ASM2-DataStructure.csproj.CoreCompileInputs.cache
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\obj\Debug\netcoreapp2.1\ASM2-DataStructure.AssemblyInfoInputs.cache
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\obj\Debug\netcoreapp2.1\ASM2-DataStructure.AssemblyInfo.cs
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\bin\Debug\netcoreapp2.1\ASM2-DataStructure.deps.json
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\bin\Debug\netcoreapp2.1\ASM2-DataStructure.runtimeconfig.json
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\bin\Debug\netcoreapp2.1\ASM2-DataStructure.runtimeconfig.dev.json
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\bin\Debug\netcoreapp2.1\ASM2-DataStructure.dll
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\bin\Debug\netcoreapp2.1\ASM2-DataStructure.pdb
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\obj\Debug\netcoreapp2.1\ASM2-DataStructure.dll
+D:\Greenwich\DataStructure\ASM2-DataStructure\ASM2-DataStructure\obj\Debug\netcoreapp2.1\ASM2-DataStructure.pdb
