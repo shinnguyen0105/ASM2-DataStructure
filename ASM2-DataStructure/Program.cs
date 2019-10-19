@@ -86,32 +86,16 @@ namespace ASM2_DataStructure
             }
         }
     }
-
-    class Program
+    class Send
     {
-        static void Main(string[] args)
+        public void SendMess(char[] input)
         {
-            var s1 = new char[250];
+            var queue = new char[250];
             var s2 = new char[250];
             Stack mystack = new Stack();
-            Queue myqueue = new Queue(250, s1);
-            Stopwatch st = new Stopwatch();
-            Console.WriteLine("====================================");
-            Console.WriteLine("Program transmits message via buffer");
-            Console.WriteLine("====================================");
-            Console.WriteLine("Enter your characters (max 250) : ");
-            st.Start();
-            string input = Console.ReadLine();
-            if (input.Length > 250)
-            {
-                Console.WriteLine("Error! Overload array...");
-            }
-            else if (input.Length < 1)
-            {
-                Console.WriteLine("Error! Array null...");
-            }
-            else 
-            {
+            Queue myqueue = new Queue(250, queue);
+            Console.WriteLine("Number elements of string: {0}", input.Length);
+           
                 try
                 {
                     for (int i = 0; i < input.Length; i++)
@@ -121,22 +105,52 @@ namespace ASM2_DataStructure
                     for (int i = 0; i < input.Length; i++)
                     {
                         myqueue.Enqueue(mystack.Pop());
-                    } 
+                    }
                     for (int i = input.Length; i > 0; i--)
                     {
                         s2[i] = myqueue.Dequeue();
                     }
                     Console.WriteLine("Your input after transfer: ");
                     Console.Write(s2);
-                    st.Stop();
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
                 }
-                Console.WriteLine("                               ");
-                Console.WriteLine("\n{0} giay", st.Elapsed.ToString());
+                
+            
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Send mysend = new Send();
+            Stopwatch st = new Stopwatch();
+            Console.WriteLine("====================================");
+            Console.WriteLine("Program transmits message via buffer");
+            Console.WriteLine("====================================");
+            Console.WriteLine("Enter your characters (max 250) : ");
+            st.Start();
+            string input = Console.ReadLine();
+            if (input.Length > 250)
+            {
+                string new_input = input.Substring(0, 250);
+                char[] s1 = input.ToCharArray();
+                mysend.SendMess(s1);
             }
+            else if (input.Length < 1)
+            {
+                Console.WriteLine("Error! Array null...");
+            }
+            else
+            {
+                char[] s1 = input.ToCharArray();
+                mysend.SendMess(s1);
+            }
+            st.Stop();
+            Console.WriteLine("                               ");
+            Console.WriteLine("\n{0} giay", st.Elapsed.ToString());
             Console.ReadKey();
         }
     }
