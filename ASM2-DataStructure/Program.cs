@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+
 namespace ASM2_DataStructure
 {
     class Queue
@@ -36,6 +37,10 @@ namespace ASM2_DataStructure
         }
         public void Enqueue(char x)
         {
+            if (Enum() == 50)
+            {
+                Console.WriteLine("Queue is full");
+            }
             Q[r] = x;
             r = (r + 1) % max;
         }
@@ -55,7 +60,7 @@ namespace ASM2_DataStructure
         public Stack()
         {
             top = -1;
-            MAX = 250;
+            MAX = 50;
             stack = new char[MAX];
         }
         public void Push(char data)
@@ -88,38 +93,53 @@ namespace ASM2_DataStructure
     }
     class Send
     {
-        public void SendMess(char[] input)
+        string s2;
+        public void SendMess(string input)
         {
-            var queue = new char[250];
-            var s2 = new char[250];
-            Stack mystack = new Stack();
-            Queue myqueue = new Queue(250, queue);
-            Console.WriteLine("Number elements of string: {0}", input.Length);
-           
-                try
+            var queue = new char[50];
+            string subInput = "";
+            Stack mystack = new Stack(); 
+            Queue myqueue = new Queue(50, queue); 
+            Console.WriteLine("\nNumber elements of string: {0}", input.Length);
+            int n = 0;
+            try
+            {
+                while (n < input.Length && n <= 250)
                 {
-                    for (int i = 0; i < input.Length; i++)
+                    while (mystack.top < 50)
                     {
-                        mystack.Push(input[i]);
+                        mystack.Push(input[n]);
+                        n++;
                     }
-                    for (int i = 0; i < input.Length; i++)
+                    while (mystack.top != 0)
                     {
                         myqueue.Enqueue(mystack.Pop());
                     }
-                    for (int i = input.Length; i > 0; i--)
+                    while (myqueue.Enum() != 0)
                     {
-                        s2[i] = myqueue.Dequeue();
+                        s2 = myqueue.Dequeue() + s2;
+                        
                     }
-                    Console.WriteLine("Your input after transfer: ");
-                    Console.Write(s2);
+                    s2 = subInput + s2;
+                    subInput = "";
                 }
-                catch (Exception e)
+            }
+            catch (Exception)
+            {
+                subInput = "";
+                while (mystack.top != 0)
                 {
-                    Console.WriteLine(e);
+                    myqueue.Enqueue(mystack.Pop());
                 }
-                
-            
-        }
+                while (myqueue.Enum() != 0)
+                {
+                    subInput = myqueue.Dequeue() + subInput;
+                }
+                s2 = s2 + subInput;
+            }
+            Console.WriteLine("Your input after transfer: ");
+            Console.Write(s2);
+            }
     }
     class Program
     {
@@ -133,11 +153,10 @@ namespace ASM2_DataStructure
             Console.WriteLine("Enter your characters (max 250) : ");
             st.Start();
             string input = Console.ReadLine();
-            if (input.Length > 250)
+            if (input.Length >= 250)
             {
-                string new_input = input.Substring(0, 250);
-                char[] s1 = input.ToCharArray();
-                mysend.SendMess(s1);
+                mysend.SendMess(input);
+                Console.WriteLine("\nWe just send message with 250 characters.");
             }
             else if (input.Length < 1)
             {
@@ -145,12 +164,11 @@ namespace ASM2_DataStructure
             }
             else
             {
-                char[] s1 = input.ToCharArray();
-                mysend.SendMess(s1);
+                mysend.SendMess(input);
             }
             st.Stop();
             Console.WriteLine("                               ");
-            Console.WriteLine("\n{0} giay", st.Elapsed.ToString());
+            Console.WriteLine("\n{0} giay", st.ElapsedMilliseconds.ToString());
             Console.ReadKey();
         }
     }
